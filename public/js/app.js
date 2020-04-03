@@ -8,7 +8,7 @@ let callApi = () => {
   element.innerText = 'loading...';
   (async () => {
     invokedPlace = place.value;
-    let resp = await fetch(`address?address=${place.value}`);
+    let resp = await fetch(`/address?address=${place.value}`);
     let data = await resp.json();
     if (data.error) {
       return (element.innerText = data.error);

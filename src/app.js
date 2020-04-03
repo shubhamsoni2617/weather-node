@@ -6,6 +6,7 @@ const express = require('express');
 const hbs = require('hbs');
 const app = express();
 
+const port = process.env.PORT || 3001;
 // Project Imports
 const API = require('./API/weatherAPI');
 
@@ -23,7 +24,7 @@ hbs.registerPartials(partialsPath);
 //Setup static directory to serve.
 app.use(express.static(publicDirectoryPath));
 
-app.get('', (req, res) => {
+app.get('/', (req, res) => {
   res.render('index', { name: 'Shubham', title: 'learn handlebars' });
 });
 app.get('/about', (req, res) => {
@@ -49,6 +50,6 @@ app.get('/address', (req, res) => {
   });
 });
 
-app.listen(3001, () => {
-  console.log('server listening on port 3001');
+app.listen(port, () => {
+  console.log(`server listening on port ${port}`);
 });
